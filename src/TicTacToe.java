@@ -1,12 +1,18 @@
+import java.util.Scanner;
+
 public class TicTacToe {
 
     public static void main(String[] args) {
 
         char[][] board = {{'_','|','_','|','_'}, {'_','|','_','|','_'}, {'_','|','_','|','_'}};
 
+
+        //Testing
         printBoard(board);
         updateBoard(board, 1, 1);
         updateBoard(board, 2, 2);
+
+        userTurn(board);
     }
 
     public static void printBoard(char[][] board) {
@@ -65,4 +71,13 @@ public class TicTacToe {
         }
     }
 
+    public static void userTurn(char[][] board) {
+
+        System.out.println("Where would you like to play? (1-9)");
+
+        Scanner scanner = new Scanner(System.in);
+
+        int userMove = scanner.nextInt();
+        updateBoard(board, 1, userMove);
+    }
 }
