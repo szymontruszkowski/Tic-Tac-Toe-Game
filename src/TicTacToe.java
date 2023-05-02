@@ -17,7 +17,7 @@ public class TicTacToe {
 
     }
 
-    public static void printBoard(char[][] board) {
+    private static void printBoard(char[][] board) {
 
         for(char[] row : board) {
             for(char c : row) {
@@ -27,7 +27,7 @@ public class TicTacToe {
         }
     }
 
-    public static void updateBoard(char[][] board, int player, int move) {
+    private static void updateBoard(char[][] board, int player, int move) {
 
         char symbol = player == 1 ? 'X' : 'O';
 
@@ -73,7 +73,7 @@ public class TicTacToe {
         }
     }
 
-    public static void userTurn(char[][] board) {
+    private static void userTurn(char[][] board) {
 
         System.out.println("Where would you like to play? (1-9)");
 
@@ -94,7 +94,7 @@ public class TicTacToe {
         updateBoard(board, 1, userMove);
     }
 
-    public static boolean isValidMove(char[][] board, int move) {
+    private static boolean isValidMove(char[][] board, int move) {
 
         switch (move) {
             case 1 -> {
