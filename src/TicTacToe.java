@@ -9,8 +9,6 @@ public class TicTacToe {
 
         //Testing
         printBoard(board);
-        updateBoard(board, 1, 1);
-        updateBoard(board, 2, 2);
 
         userTurn(board);
         userTurn(board);
@@ -83,11 +81,16 @@ public class TicTacToe {
 
         int userMove;
 
-        do {
+        while (true) {
             userMove = scanner.nextInt();
-            System.out.println("That slot is taken! Try another one.");
-        } while (!isValidMove(board, userMove));
+            if (isValidMove(board, userMove)) {
+                break;
+            } else {
+                System.out.println("That slot is taken! Mark another one.");
+            }
+        }
 
+        System.out.println("User marked a slot number " + userMove);
         updateBoard(board, 1, userMove);
     }
 
