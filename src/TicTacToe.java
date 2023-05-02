@@ -13,6 +13,10 @@ public class TicTacToe {
         updateBoard(board, 2, 2);
 
         userTurn(board);
+        userTurn(board);
+        userTurn(board);
+        userTurn(board);
+
     }
 
     public static void printBoard(char[][] board) {
@@ -77,7 +81,49 @@ public class TicTacToe {
 
         Scanner scanner = new Scanner(System.in);
 
-        int userMove = scanner.nextInt();
+        int userMove;
+
+        do {
+            userMove = scanner.nextInt();
+            System.out.println("That slot is taken! Try another one.");
+        } while (!isValidMove(board, userMove));
+
         updateBoard(board, 1, userMove);
+    }
+
+    public static boolean isValidMove(char[][] board, int move) {
+
+        switch (move) {
+            case 1 -> {
+                return board[0][0] == '_';
+            }
+            case 2 -> {
+                return board[0][2] == '_';
+            }
+            case 3 -> {
+                return board[0][4] == '_';
+            }
+            case 4 -> {
+                return board[1][0] == '_';
+            }
+            case 5 -> {
+                return board[1][2] == '_';
+            }
+            case 6 -> {
+                return board[1][4] == '_';
+            }
+            case 7 -> {
+                return board[2][0] == '_';
+            }
+            case 8 -> {
+                return board[2][2] == '_';
+            }
+            case 9 -> {
+                return board[2][4] == '_';
+            }
+            default -> {
+                return false;
+            }
+        }
     }
 }
