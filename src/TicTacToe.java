@@ -19,6 +19,7 @@ public class TicTacToe {
         botTurn(board);
         userTurn(board);
         botTurn(board);
+        userTurn(board);
 
     }
 
@@ -141,12 +142,9 @@ public class TicTacToe {
 
         int botMove;
 
-        while(true) {
+        do {
             botMove = random.nextInt(1, 10);
-            if (isValidMove(board, botMove)) {
-                break;
-            }
-        }
+        } while (!isValidMove(board, botMove));
 
         System.out.println("Bot marked a slot number " + botMove);
         updateBoard(board, 2, botMove);
