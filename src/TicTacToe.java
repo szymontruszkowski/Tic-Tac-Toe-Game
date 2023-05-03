@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -11,9 +12,13 @@ public class TicTacToe {
         printBoard(board);
 
         userTurn(board);
+        botTurn(board);
         userTurn(board);
+        botTurn(board);
         userTurn(board);
+        botTurn(board);
         userTurn(board);
+        botTurn(board);
 
     }
 
@@ -128,5 +133,22 @@ public class TicTacToe {
                 return false;
             }
         }
+    }
+
+    private static void botTurn(char[][] board) {
+
+        Random random = new Random();
+
+        int botMove;
+
+        while(true) {
+            botMove = random.nextInt(1, 10);
+            if (isValidMove(board, botMove)) {
+                break;
+            }
+        }
+
+        System.out.println("Bot marked a slot number " + botMove);
+        updateBoard(board, 2, botMove);
     }
 }
