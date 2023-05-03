@@ -92,7 +92,7 @@ public class TicTacToe {
             if (isValidMove(board, userMove)) {
                 break;
             } else {
-                System.out.println("That slot is taken! Mark another one.");
+                System.out.println("This slot is taken! Mark another one.");
             }
         }
 
