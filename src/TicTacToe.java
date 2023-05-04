@@ -11,16 +11,17 @@ public class TicTacToe {
         //Testing
         printBoard(board);
 
-        userTurn(board);
-        botTurn(board);
-        userTurn(board);
-        botTurn(board);
-        userTurn(board);
-        botTurn(board);
-        userTurn(board);
-        botTurn(board);
-        userTurn(board);
+        while (!isGameFinished(board)) {
+            userTurn(board);
+            if (isGameFinished(board)) {
+                break;
+            }
 
+            botTurn(board);
+            if (isGameFinished(board)) {
+                break;
+            }
+        }
     }
 
     private static void printBoard(char[][] board) {
@@ -148,5 +149,88 @@ public class TicTacToe {
 
         System.out.println("Bot marked a slot number " + botMove);
         updateBoard(board, 2, botMove);
+    }
+
+    private static boolean isGameFinished(char[][] board) {
+
+        //Horizontal Wins
+        if (board[0][0] == 'X' && board[0][2] == 'X' && board[0][4] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][0] == 'O' && board[0][2] == 'O' && board[0][4] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+        if (board[1][0] == 'X' && board[1][2] == 'X' && board[1][4] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[1][0] == 'O' && board[1][2] == 'O' && board[1][4] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+        if (board[2][0] == 'X' && board[2][2] == 'X' && board[2][4] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[2][0] == 'O' && board[2][2] == 'O' && board[2][4] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+
+        //Vertical Wins
+        if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+        if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+        if (board[0][4] == 'X' && board[1][4] == 'X' && board[2][4] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][4] == 'O' && board[1][4] == 'O' && board[2][4] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+
+        //Cross Wins
+        if (board[0][0] == 'X' && board[1][2] == 'X' && board[2][4] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][0] == 'O' && board[1][2] == 'O' && board[2][4] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+        if (board[0][4] == 'X' && board[1][2] == 'X' && board[2][0] == 'X') {
+            System.out.println("User Wins");
+            return true;
+        }
+        if (board[0][4] == 'O' && board[1][2] == 'O' && board[2][0] == 'O') {
+            System.out.println("Bot Wins");
+            return true;
+        }
+
+        // Board is full
+        if (board[0][0] != '_' && board[0][2] != '_' && board[0][4] != '_' &&
+            board[1][0] != '_' && board[1][2] != '_' && board[1][4] != '_' &&
+            board[2][0] != '_' && board[2][2] != '_' && board[2][4] != '_') {
+
+            System.out.println("GAME OVER");
+            return true;
+        }
+        return false;
     }
 }
