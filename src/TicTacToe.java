@@ -5,7 +5,7 @@ public class TicTacToe {
 
     public static void main(String[] args) {
 
-        char[][] board = {{'_','|','_','|','_'}, {'_','|','_','|','_'}, {'_','|','_','|','_'}};
+        char[][] board = {{'_','_','_'}, {'_','_','_'}, {'_','_','_'}};
 
 
         //Testing
@@ -26,12 +26,9 @@ public class TicTacToe {
 
     private static void printBoard(char[][] board) {
 
-        for(char[] row : board) {
-            for(char c : row) {
-                System.out.print(c);
-            }
-            System.out.println();
-        }
+        System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2] );
+        System.out.println(board[1][0] + "|" + board[1][1] + "|" + board[1][2] );
+        System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2] );
     }
 
     private static void updateBoard(char[][] board, int player, int move) {
@@ -44,11 +41,11 @@ public class TicTacToe {
                 printBoard(board);
             }
             case 2 -> {
-                board[0][2] = symbol;
+                board[0][1] = symbol;
                 printBoard(board);
             }
             case 3 -> {
-                board[0][4] = symbol;
+                board[0][2] = symbol;
                 printBoard(board);
             }
             case 4 -> {
@@ -56,11 +53,11 @@ public class TicTacToe {
                 printBoard(board);
             }
             case 5 -> {
-                board[1][2] = symbol;
+                board[1][1] = symbol;
                 printBoard(board);
             }
             case 6 -> {
-                board[1][4] = symbol;
+                board[1][2] = symbol;
                 printBoard(board);
             }
             case 7 -> {
@@ -68,11 +65,11 @@ public class TicTacToe {
                 printBoard(board);
             }
             case 8 -> {
-                board[2][2] = symbol;
+                board[2][1] = symbol;
                 printBoard(board);
             }
             case 9 -> {
-                board[2][4] = symbol;
+                board[2][2] = symbol;
                 printBoard(board);
             }
             default -> {
@@ -108,28 +105,28 @@ public class TicTacToe {
                 return board[0][0] == '_';
             }
             case 2 -> {
-                return board[0][2] == '_';
+                return board[0][1] == '_';
             }
             case 3 -> {
-                return board[0][4] == '_';
+                return board[0][2] == '_';
             }
             case 4 -> {
                 return board[1][0] == '_';
             }
             case 5 -> {
-                return board[1][2] == '_';
+                return board[1][1] == '_';
             }
             case 6 -> {
-                return board[1][4] == '_';
+                return board[1][2] == '_';
             }
             case 7 -> {
                 return board[2][0] == '_';
             }
             case 8 -> {
-                return board[2][2] == '_';
+                return board[2][1] == '_';
             }
             case 9 -> {
-                return board[2][4] == '_';
+                return board[2][2] == '_';
             }
             default -> {
                 return false;
@@ -154,41 +151,41 @@ public class TicTacToe {
     private static boolean isGameFinished(char[][] board) {
 
         // Board is full
-        if (board[0][0] != '_' && board[0][2] != '_' && board[0][4] != '_' &&
-            board[1][0] != '_' && board[1][2] != '_' && board[1][4] != '_' &&
-            board[2][0] != '_' && board[2][2] != '_' && board[2][4] != '_') {
+        if (board[0][0] != '_' && board[0][1] != '_' && board[0][2] != '_' &&
+            board[1][0] != '_' && board[1][1] != '_' && board[1][2] != '_' &&
+            board[2][0] != '_' && board[2][1] != '_' && board[2][2] != '_') {
 
             System.out.println("Game Over");
             return true;
         }
 
         //User wins
-        if ((board[0][0] == 'X' && board[0][2] == 'X' && board[0][4] == 'X') ||
-            (board[1][0] == 'X' && board[1][2] == 'X' && board[1][4] == 'X') ||
-            (board[2][0] == 'X' && board[2][2] == 'X' && board[2][4] == 'X') ||
+        if ((board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') ||
+            (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X') ||
+            (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') ||
 
             (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') ||
+            (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X') ||
             (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') ||
-            (board[0][4] == 'X' && board[1][4] == 'X' && board[2][4] == 'X') ||
 
-            (board[0][0] == 'X' && board[1][2] == 'X' && board[2][4] == 'X') ||
-            (board[0][4] == 'X' && board[1][2] == 'X' && board[2][0] == 'X')) {
+            (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') ||
+            (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
 
             System.out.println("User Wins");
             return true;
         }
 
         //Bot wins
-        if ((board[0][0] == 'O' && board[0][2] == 'O' && board[0][4] == 'O') ||
-            (board[1][0] == 'O' && board[1][2] == 'O' && board[1][4] == 'O') ||
-            (board[2][0] == 'O' && board[2][2] == 'O' && board[2][4] == 'O') ||
+        if ((board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O') ||
+            (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O') ||
+            (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O') ||
 
             (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O') ||
+            (board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O') ||
             (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O') ||
-            (board[0][4] == 'O' && board[1][4] == 'O' && board[2][4] == 'O') ||
 
-            (board[0][0] == 'O' && board[1][2] == 'O' && board[2][4] == 'O') ||
-            (board[0][4] == 'O' && board[1][2] == 'O' && board[2][0] == 'O')) {
+            (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') ||
+            (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
 
             System.out.println("Bot Wins");
             return true;
