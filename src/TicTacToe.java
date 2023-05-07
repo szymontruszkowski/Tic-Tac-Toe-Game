@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -217,14 +218,8 @@ public class TicTacToe {
 
     private static void clearBoard(char[][] board) {
 
-        board[0][0] = '_';
-        board[0][1] = '_';
-        board[0][2] = '_';
-        board[1][0] = '_';
-        board[1][1] = '_';
-        board[1][2] = '_';
-        board[2][0] = '_';
-        board[2][1] = '_';
-        board[2][2] = '_';
+        for (char[] row : board) {
+            Arrays.fill(row, '_');
+        }
     }
 }
