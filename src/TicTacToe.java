@@ -3,22 +3,44 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    private static final Scanner scanner = new Scanner(System.in);
+    private static int userScore;
+    private static int botScore;
+
+
     public static void main(String[] args) {
 
-        char[][] board = {{'_','_','_'}, {'_','_','_'}, {'_','_','_'}};
-
+        char[][] board = {{'_', '_', '_'}, {'_', '_', '_'}, {'_', '_', '_'}};
 
         //Testing
         printBoard(board);
 
-        while (!isGameFinished(board)) {
-            userTurn(board);
-            if (isGameFinished(board)) {
-                break;
+        while (true) {
+
+            while (!isGameFinished(board)) {
+                userTurn(board);
+                if (isGameFinished(board)) {
+                    break;
+                }
+                botTurn(board);
+                if (isGameFinished(board)) {
+                    break;
+                }
             }
 
-            botTurn(board);
-            if (isGameFinished(board)) {
+            System.out.println("User score is now: " + userScore);
+            System.out.println("Bot score is now: " + botScore);
+            System.out.println("Do you want to play again? Y/N");
+
+            scanner.nextLine();
+            String answer = scanner.nextLine();
+
+            if (answer.equalsIgnoreCase("Y")) {
+                System.out.println("Good luck!");
+                clearBoard(board);
+                printBoard(board);
+            } else {
+                System.out.println("See you!");
                 break;
             }
         }
@@ -80,8 +102,6 @@ public class TicTacToe {
     private static void userTurn(char[][] board) {
 
         System.out.println("Where would you like to play? (1-9)");
-
-        Scanner scanner = new Scanner(System.in);
 
         int userMove;
 
@@ -172,6 +192,7 @@ public class TicTacToe {
             (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
 
             System.out.println("User Wins");
+            userScore++;
             return true;
         }
 
@@ -188,8 +209,22 @@ public class TicTacToe {
             (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
 
             System.out.println("Bot Wins");
+            botScore++;
             return true;
         }
         return false;
+    }
+
+    private static void clearBoard(char[][] board) {
+
+        board[0][0] = '_';
+        board[0][1] = '_';
+        board[0][2] = '_';
+        board[1][0] = '_';
+        board[1][1] = '_';
+        board[1][2] = '_';
+        board[2][0] = '_';
+        board[2][1] = '_';
+        board[2][2] = '_';
     }
 }
