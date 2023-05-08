@@ -13,7 +13,7 @@ public class TicTacToe {
 
         char[][] board = {{'_', '_', '_'}, {'_', '_', '_'}, {'_', '_', '_'}};
 
-        //Testing
+        //Game loop
         printBoard(board);
 
         while (true) {
@@ -31,7 +31,7 @@ public class TicTacToe {
 
             System.out.println("User score is now: " + userScore);
             System.out.println("Bot score is now: " + botScore);
-            System.out.println("Do you want to play again? Y/N");
+            System.out.println("Do you want to play again? Press Y button to continue.");
 
             String answer = scanner.nextLine();
 
