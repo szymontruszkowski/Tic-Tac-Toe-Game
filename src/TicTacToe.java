@@ -33,7 +33,6 @@ public class TicTacToe {
             System.out.println("Bot score is now: " + botScore);
             System.out.println("Do you want to play again? Y/N");
 
-            scanner.nextLine();
             String answer = scanner.nextLine();
 
             if (answer.equalsIgnoreCase("Y")) {
@@ -41,7 +40,7 @@ public class TicTacToe {
                 clearBoard(board);
                 printBoard(board);
             } else {
-                System.out.println("See you!");
+                System.out.println("Thanks for playing!");
                 break;
             }
         }
@@ -104,49 +103,49 @@ public class TicTacToe {
 
         System.out.println("Where would you like to play? (1-9)");
 
-        int userMove;
+        String userMove;
 
         while (true) {
-            userMove = scanner.nextInt();
+            userMove = scanner.nextLine();
             if (isValidMove(board, userMove)) {
                 break;
             } else {
-                System.out.println("This slot is taken! Mark another one.");
+                System.out.println("Invalid move! Mark another slot.");
             }
         }
 
         System.out.println("User marked a slot number " + userMove);
-        updateBoard(board, 1, userMove);
+        updateBoard(board, 1, Integer.parseInt(userMove));
     }
 
-    private static boolean isValidMove(char[][] board, int move) {
+    private static boolean isValidMove(char[][] board, String move) {
 
         switch (move) {
-            case 1 -> {
+            case "1" -> {
                 return board[0][0] == '_';
             }
-            case 2 -> {
+            case "2" -> {
                 return board[0][1] == '_';
             }
-            case 3 -> {
+            case "3" -> {
                 return board[0][2] == '_';
             }
-            case 4 -> {
+            case "4" -> {
                 return board[1][0] == '_';
             }
-            case 5 -> {
+            case "5" -> {
                 return board[1][1] == '_';
             }
-            case 6 -> {
+            case "6" -> {
                 return board[1][2] == '_';
             }
-            case 7 -> {
+            case "7" -> {
                 return board[2][0] == '_';
             }
-            case 8 -> {
+            case "8" -> {
                 return board[2][1] == '_';
             }
-            case 9 -> {
+            case "9" -> {
                 return board[2][2] == '_';
             }
             default -> {
@@ -163,7 +162,7 @@ public class TicTacToe {
 
         do {
             botMove = random.nextInt(1, 10);
-        } while (!isValidMove(board, botMove));
+        } while (!isValidMove(board, Integer.toString(botMove)));
 
         System.out.println("Bot marked a slot number " + botMove);
         updateBoard(board, 2, botMove);
