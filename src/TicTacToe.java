@@ -8,7 +8,9 @@ public class TicTacToe {
     private static int userScore;
     private static int botScore;
 
-
+    /**
+     * Entry point of game
+     */
     public static void main(String[] args) {
 
         char[][] board = {{'_', '_', '_'}, {'_', '_', '_'}, {'_', '_', '_'}};
@@ -45,7 +47,7 @@ public class TicTacToe {
             }
         }
     }
-
+    
     private static void printBoard(char[][] board) {
 
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2] );
