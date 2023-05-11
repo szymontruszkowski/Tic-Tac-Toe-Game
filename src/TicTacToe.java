@@ -47,7 +47,11 @@ public class TicTacToe {
             }
         }
     }
-    
+
+    /**
+     * Print a game board in the console
+     * @param board the board to be printed
+     */
     private static void printBoard(char[][] board) {
 
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2] );
