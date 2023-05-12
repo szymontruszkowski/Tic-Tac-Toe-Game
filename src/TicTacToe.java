@@ -49,7 +49,7 @@ public class TicTacToe {
     }
 
     /**
-     * Print a game board in the console
+     * Print the game board in the console
      * @param board the board to be printed
      */
     private static void printBoard(char[][] board) {
@@ -59,6 +59,12 @@ public class TicTacToe {
         System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2] );
     }
 
+    /**
+     * Update the board with X or O
+     * @param board     the board to be updated
+     * @param player    the player who is making a move
+     * @param move      the move (chosen slt of the board)
+     */
     private static void updateBoard(char[][] board, int player, int move) {
 
         char symbol = player == 1 ? 'X' : 'O';
