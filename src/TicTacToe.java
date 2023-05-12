@@ -62,7 +62,7 @@ public class TicTacToe {
     /**
      * Update the board with X or O
      * @param board     the board to be updated
-     * @param player    the player who is making a move
+     * @param player    the player who makes a move
      * @param move      the move (chosen slot of the board)
      */
     private static void updateBoard(char[][] board, int player, int move) {
