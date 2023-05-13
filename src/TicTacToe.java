@@ -112,7 +112,7 @@ public class TicTacToe {
     }
 
     /**
-     * Make a user's move by first checking if the move is valid and if it is then
+     * Make a user's move by first check if the move is valid and if it is then
      * mark a picked slot on the board. If the move is invalid prompt the user to
      * make another move.
      * @param board     the board to be updated
