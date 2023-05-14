@@ -136,6 +136,13 @@ public class TicTacToe {
         updateBoard(board, 1, Integer.parseInt(userMove));
     }
 
+    /**
+     * Check if the move is valid by check if picked slot is marked as '_' which
+     * means that is empty.
+     * @param board     the board to be checked
+     * @param move      the move (slot on the board) to be checked
+     * @return          true if the move is valid or false if it is not
+     */
     private static boolean isValidMove(char[][] board, String move) {
 
         switch (move) {
