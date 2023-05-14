@@ -139,7 +139,7 @@ public class TicTacToe {
     /**
      * Check if the move is valid by check if picked slot is marked as '_' which
      * means that is empty.
-     * @param board     the board to be checked
+     * @param board     the board on which move is taken
      * @param move      the move (slot on the board) to be checked
      * @return          true if the move is valid or false if it is not
      */
