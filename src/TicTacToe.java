@@ -6,7 +6,7 @@ public class TicTacToe {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static int userScore;
-    private static int botScore;
+    private static int computerScore;
 
     /**
      * Entry point of game
@@ -25,14 +25,14 @@ public class TicTacToe {
                 if (isGameFinished(board)) {
                     break;
                 }
-                botTurn(board);
+                computerTurn(board);
                 if (isGameFinished(board)) {
                     break;
                 }
             }
 
             System.out.println("User score is now: " + userScore);
-            System.out.println("Bot score is now: " + botScore);
+            System.out.println("Computer score is now: " + computerScore);
             System.out.println("Do you want to play again? Press Y button to continue.");
 
             String answer = scanner.nextLine();
@@ -179,18 +179,18 @@ public class TicTacToe {
         }
     }
 
-    private static void botTurn(char[][] board) {
+    private static void computerTurn(char[][] board) {
 
         Random random = new Random();
 
-        int botMove;
+        int computerMove;
 
         do {
-            botMove = random.nextInt(1, 10);
-        } while (!isValidMove(board, Integer.toString(botMove)));
+            computerMove = random.nextInt(1, 10);
+        } while (!isValidMove(board, Integer.toString(computerMove)));
 
-        System.out.println("Bot marked a slot number " + botMove);
-        updateBoard(board, 2, botMove);
+        System.out.println("Computer marked a slot number " + computerMove);
+        updateBoard(board, 2, computerMove);
     }
 
     private static boolean isGameFinished(char[][] board) {
@@ -221,7 +221,7 @@ public class TicTacToe {
             return true;
         }
 
-        //Bot wins
+        //Computer wins
         if ((board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O') ||
             (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O') ||
             (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O') ||
@@ -233,8 +233,8 @@ public class TicTacToe {
             (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') ||
             (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
 
-            System.out.println("Bot Wins");
-            botScore++;
+            System.out.println("Computer Wins");
+            computerScore++;
             return true;
         }
         return false;
