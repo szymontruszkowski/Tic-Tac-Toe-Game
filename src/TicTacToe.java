@@ -200,7 +200,7 @@ public class TicTacToe {
 
     /**
      * Check if game is finished by checking all winning conditions
-     * (horizontal, vertical, diagonals and a tie).
+     * (horizontal, vertical, diagonal and a tie).
      * @param board     the board to be checked
      * @return          true if the game is finished or false if it is not
      */
