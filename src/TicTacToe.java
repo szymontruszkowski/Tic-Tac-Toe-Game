@@ -198,6 +198,12 @@ public class TicTacToe {
         updateBoard(board, 2, computerMove);
     }
 
+    /**
+     * Check if game is finished by checking all winning conditions
+     * (horizontal, vertical, diagonals and a tie).
+     * @param board     the board to be checked
+     * @return          true if the game is finished or false if it is not
+     */
     private static boolean isGameFinished(char[][] board) {
 
         // Board is full
@@ -209,7 +215,7 @@ public class TicTacToe {
             return true;
         }
 
-        //User wins
+        // User wins
         if ((board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') ||
             (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X') ||
             (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') ||
@@ -226,7 +232,7 @@ public class TicTacToe {
             return true;
         }
 
-        //Computer wins
+        // Computer wins
         if ((board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O') ||
             (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O') ||
             (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O') ||
