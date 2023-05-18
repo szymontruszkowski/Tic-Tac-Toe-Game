@@ -137,7 +137,7 @@ public class TicTacToe {
     }
 
     /**
-     * Check if the move is valid by check if picked slot is marked as '_' which
+     * Check if the move is valid by checking if picked slot is marked as '_' which
      * means that is empty.
      * @param board     the board on which move is taken
      * @param move      the move (slot on the board) to be checked
@@ -251,6 +251,10 @@ public class TicTacToe {
         return false;
     }
 
+    /**
+     * Clear the board by filling each slot with default symbol ('_')
+     * @param board     the board to be cleared
+     */
     private static void clearBoard(char[][] board) {
 
         for (char[] row : board) {
